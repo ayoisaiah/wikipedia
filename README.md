@@ -26,4 +26,4 @@ Build an app that is functionally similar to this: https://codepen.io/FreeCodeCa
 
 ## My Work
 
-![Wikipedia Search Engine]()
+![Wikipedia Search Engine](https://cdn.rawgit.com/ayoisaiah/wikipedia/5b414572/screenshot.png)
