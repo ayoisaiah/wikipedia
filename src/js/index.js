@@ -9,9 +9,7 @@ const params = {
   sroffset: ""
 };
 
-function handleKeydown (event) {
-  console.log(event);
-  if (event.keyCode <= 46) return;
+function handleValueChange (event) {
   const container = document.querySelector(".container");
   if (!container.classList.contains("top-container")) {
     container.classList.add("top-container");
@@ -28,7 +26,7 @@ function handleSubmit (event) {
   resultsContainer.innerHTML = "";
 
   loadMore.classList.add("hidden");
-  document.querySelector(".moreResults p").classList.add("hidden")
+  document.querySelector(".moreResults p").classList.add("hidden");
 
   fetchResults(params.searchTerm, params.sroffset);
 }
@@ -47,10 +45,8 @@ function fetchResults (keywords, number) {
 
     document.querySelector(".loading-indicator").classList.add("hidden");
 
-    console.log(data);
-
     if (data.query.searchinfo.totalhits) {
-      displayResults(data)
+      displayResults(data);
       return;
     }
 
@@ -84,8 +80,8 @@ function displayResults(data) {
     return;
   }
 
-  document.querySelector(".moreResults p").classList.remove("hidden")
-  loadMore.classList.add("hidden")
+  document.querySelector(".moreResults p").classList.remove("hidden");
+  loadMore.classList.add("hidden");
 
 }
 
@@ -95,7 +91,7 @@ function displayErrorMessage (keywords) {
   resultsContainer.innerHTML = "";
 
   loadMore.classList.add("hidden");
-  document.querySelector(".moreResults p").classList.add("hidden")
+  document.querySelector(".moreResults p").classList.add("hidden");
 
   resultsContainer.insertAdjacentHTML("beforeend",
     `<div class='errorMessage'>
@@ -109,7 +105,7 @@ function displayErrorMessage (keywords) {
 
 }
 
-input.addEventListener("keydown", handleKeydown);
+input.addEventListener("input", handleValueChange);
 form.addEventListener("submit", handleSubmit);
 
 loadMore.addEventListener("click", () => {
